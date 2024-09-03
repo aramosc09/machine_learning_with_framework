@@ -8,13 +8,13 @@ from operator import itemgetter
 class ChatBot:
     def __init__(self, api, language='English'):
         """
-        Inicializa el chatbot con el prompt, modelo, trimmer opcional y config de streaming.
+        Init chatbot with prompt, model, trimmer and streaming config.
         
         Args:
-        - prompt: El objeto prompt que formatea las entradas del usuario.
-        - model: El modelo que generará las respuestas.
-        - trimmer: Una función opcional para procesar los mensajes.
-        - config: Configuración para el streaming (si es requerido por el modelo).
+        - prompt: System prompt given to the model at each Human message.
+        - model: model in charge of returning an answer to user.
+        - trimmer: To process each message. This avoids message to be too long for the model to answer.
+        - config: To get session id.
         """
         self.prompt = ChatPromptTemplate.from_messages(
             [
@@ -39,17 +39,17 @@ class ChatBot:
             allow_partial=False,
             start_on="human",
         )
-        self.messages = []  # Almacenamos los mensajes
-        self.config = config = {"configurable": {"session_id": "abc1"}}  # Configuración para el stream
+        self.messages = []  # to save history
+        self.config = {"configurable": {"session_id": "abc1"}}
         self.language = language
     
     def add_message(self, content, is_human=True):
         """
-        Añade un mensaje a la conversación, ya sea humano o de la IA.
+        Adds a Human or AI message to history.
         
         Args:
-        - content: El contenido del mensaje.
-        - is_human: Booleano para determinar si es un mensaje humano (True) o AI (False).
+        - content: Message content.
+        - is_human: Boolean to if message is from Human (True) or AI (False).
         """
         if is_human:
             self.messages.append(HumanMessage(content=content))
@@ -58,14 +58,14 @@ class ChatBot:
     
     def chat(self, input_text):
         """
-        Procesa la interacción con el usuario, enviando el input al modelo y devolviendo la respuesta en tiempo real.
+        Processes user input to model and streams LLM answer.
         
         Args:
-        - input_text: El mensaje del usuario.
-        - language: El idioma de la interacción (por defecto es inglés).
+        - input_text: User message.
+        - language: default is English
         
         Returns:
-        - response_content: El contenido completo del mensaje generado por el modelo.
+        - response_content: complete answer when stream ends
         """
         # Add user input to chat history
         self.add_message(input_text, is_human=True)
@@ -97,16 +97,16 @@ class ChatBot:
 
     def get_conversation(self):
         """
-        Devuelve la conversación completa en formato de lista.
+        Returns conversation as a list.
         
         Returns:
-        - messages: Una lista de los mensajes hasta el momento.
+        - messages: list of all messages in current conversation.
         """
         return self.messages
     
     def print_conversation(self):
         """
-        Imprime la conversación completa en la consola.
+        Prints whole conversation in console.
         """
         for msg in self.messages:
             sender = "Human" if isinstance(msg, HumanMessage) else "AI"
