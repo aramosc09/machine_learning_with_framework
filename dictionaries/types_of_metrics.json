@@ -1,0 +1,7 @@
+{
+    "Passing Metrics" :["completions", "attempts", "passing_yards", "passing_tds", "interceptions", "sacks", "sack_fumbles", "sack_fumbles_lost", "passing_air_yards", "passing_yards_after_catch", "passing_first_downs", "passing_epa", "passing_2pt_conversions"],
+    "Rushing Metrics" : ["carries", "rushing_yards", "rushing_tds", "rushing_fumbles", "rushing_fumbles_lost", "rushing_first_downs", "rushing_epa", "rushing_2pt_conversions","ry_sh", "rtd_sh", "rfd_sh", "rtdfd_sh"],
+    "Receiving Metrics" : ["receptions", "targets", "receiving_yards", "receiving_tds", "receiving_fumbles", "receiving_fumbles_lost", "receiving_air_yards", "receiving_yards_after_catch", "receiving_first_downs", "receiving_epa", "receiving_2pt_conversions","target_share", "air_yards_share", "tgt_sh", "ay_sh", "yac_sh"],
+    "Advanced Metrics" : ["pacr", "Dakota", "racr", "wopr_x", "wopr_y", "dom", "w8dom", "fantasy_points", "fantasy_points_ppr", "ppr_sh"],
+    "Player Info" : ["player_display_name", "recent_team", "position_group", "games", "headshot_url"]
+}

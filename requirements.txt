@@ -1,0 +1,7 @@
+nfl_data_py
+pandas
+scikit-learn
+seaborn
+matplotlib
+langchain
+openai
