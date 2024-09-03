@@ -16,8 +16,7 @@ def main():
     s_types = mapping[s_type]
 
     # Install required libraries
-    requirements_file = os.path.join(os.getcwd(), "requirements.txt")
-    install_requirements(requirements_file)
+    install_requirements()
 
     # Get API from user in case assistant is needed
     api = input('Please insert your OpenAI API to use the assistant. (Enter to proceed without API):     ')
