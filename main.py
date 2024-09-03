@@ -10,8 +10,8 @@ def main():
     # Get input data from user
     input_data = json_to_dict('input_data.json')
     years = input_data['years']
-    s_type = input_data['s_type']
-    tom = input_data['tom']
+    s_type = input_data['s_type'] # REG, POS, ALL
+    tom = input_data['tom'] # Passing Metrics, Rushing Metrics, Receiving Metrics
     mapping = json_to_dict('dictionaries/mapping_s_type.json')
     s_types = mapping[s_type]
 
