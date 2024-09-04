@@ -1,7 +1,8 @@
+streamlit
 nfl_data_py
 pandas
 scikit-learn
 seaborn
 matplotlib
-langchain
-openai
+langchain==0.2.14
+openai==1.42.0

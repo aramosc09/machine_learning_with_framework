@@ -1,12 +1,14 @@
+# Install required libraries
+from utils.install_requirements import install_requirements
+install_requirements()
 from utils.get_data import get_data, filter_data
 from utils.clustering import clustering
 from utils.json_to_dict import json_to_dict
 from assistant.init_assistant import init_assistant
 from assistant.first_analysis import first_analysis
-from utils.install_requirements import install_requirements
-import os
 
 def main():
+
     # Get input data from user
     input_data = json_to_dict('input_data.json')
     years = input_data['years']
@@ -14,9 +16,6 @@ def main():
     tom = input_data['tom'] # Passing Metrics, Rushing Metrics, Receiving Metrics
     mapping = json_to_dict('dictionaries/mapping_s_type.json')
     s_types = mapping[s_type]
-
-    # Install required libraries
-    install_requirements()
 
     # Get API from user in case assistant is needed
     api = input('Please insert your OpenAI API to use the assistant. (Enter to proceed without API):     ')
