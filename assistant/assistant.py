@@ -92,8 +92,8 @@ class ChatBot:
         
         # Add AI response to history
         self.add_message(response_content, is_human=False)
-        
         print()
+        return response_content
 
     def get_conversation(self):
         """

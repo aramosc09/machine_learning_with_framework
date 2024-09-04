@@ -24,21 +24,22 @@ def main():
         assistant = init_assistant(api) # Init assistant (None if no API provided or if API is invalid)
         raw_data = get_data(years,s_type) # Get raw data
         data_to_analyze = filter_data(raw_data,tom) # Clean data 
-        players_analyzed, metrics_analyzed, summary_path, analyzed_data_path = clustering(data_to_analyze.copy(),tom,years) # Apply clustering to data, return data for assistant
+        players_analyzed, metrics_analyzed, summary_path, analyzed_data_path, base_path = clustering(data_to_analyze.copy(),tom,years) # Apply clustering to data, return data for assistant
         
         # Get data from json
         summary_as_json = json_to_dict(summary_path)
         data_as_json = json_to_dict(analyzed_data_path)
 
         if assistant:
-            first_analysis(
+            analysis_path = first_analysis(
                 tom,
                 s_types,
                 years,
                 summary_as_json,
                 players_analyzed,
                 metrics_analyzed,
-                assistant
+                assistant,
+                base_path
             )
 
     except Exception as e:

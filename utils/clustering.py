@@ -49,7 +49,7 @@ def clustering(data,tom,years):
         print('Pairplot saved as:',pairplot_path)
         print('----------------------------------------------------------------------------------')
 
-        return players_analyzed, metrics_analyzed, os.path.join(base_path,summary_path), os.path.join(base_path,data_path)
+        return players_analyzed, metrics_analyzed, os.path.join(base_path,summary_path), os.path.join(base_path,data_path), base_path
 
     except Exception as e:
         print(e)
