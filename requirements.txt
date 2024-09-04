@@ -5,4 +5,5 @@ scikit-learn
 seaborn
 matplotlib
 langchain==0.2.14
+langchain_openai==0.1.22
 openai==1.42.0
