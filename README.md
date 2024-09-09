@@ -75,5 +75,10 @@ Este script incluye la instalación de las dependencias requeridas.
 ## Integración con LLM
 El análisis adicional es generado por un modelo de LLM a través de la integración con LangChain. El LLM utiliza las entradas del usuario y los resultados de clustering para ofrecer una visión más detallada del rendimiento de los jugadores.
 
+## Métricas
 
- 
+El proyecto se basa en uso de aprendizaje no supervisado. Por lo que no cuenta con métricas explícitas. El análisis de los jugadores es realizado por el LLM y el usuario. Así mismo, este proyecto cuenta con varios módulos encargados de realizar la limpieza necesaria del dataset dependiendo de las necesidades del usuario de manera automática. Así mismo el repositorio cuenta con un par de ejemplos de ejecuciones en `machine_learning_with_framework/clustered_data`
+
+## Ejemplo de run `gif`
+
+![Texto alternativo](example.gif)
